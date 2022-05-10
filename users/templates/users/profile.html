@@ -1,0 +1,28 @@
+{% extends 'users/main.html' %}
+{% load static %}
+{% block title %}
+  Кабинет пользователя
+{% endblock %}
+
+{% block content %}
+<h1 class="profile_title">Кабинет пользователя</h1>
+<div class="profile_blog">
+  <p><strong class="">@{{ user.username }}</strong>
+    {% if user.email %}
+    <br>
+      <b class="">Email:</b> {{ user.email }}
+    {% endif %}
+  </p>
+    <a class="button_exit" href="">Выйти из кабинета</a>
+
+</div>
+<h1 class="update_title">Изменить данные о пользователе</h1>
+<div class="update_block">
+  <form class="" method="post">{% csrf_token %}
+    {{update_user.as_p}}
+    <br>
+    {{profileForm.as_p}}
+    <button class="update_button" type="submit" name="button">Обновить</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'users/main.html' %}
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block content %}
+<div class="auth_block">
+  <div class="">
+    <h2>Авторизация на сайте</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form}}
+      <button type="submit" class="auth_button">Войти</button>
+    </form>
+  </div>
+</div>
+{% endblock%}
