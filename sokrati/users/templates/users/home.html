@@ -1,0 +1,16 @@
+{% extends 'users/main.html' %}
+{% block title %}
+    Сократи
+{% endblock %}
+   {% block content %}
+<div class="content__block">
+    <h1 class="title">Сократи</h1><br>
+    <p>Быстро сократим любую длинную <br>ссылку для вашего проекта</p>
+
+   <div class="button_signin">
+    <a class="button" href="{% url 'profile' %}">Кабинет пользователя</a>
+   </div>
+</div>
+
+
+    {% endblock %}

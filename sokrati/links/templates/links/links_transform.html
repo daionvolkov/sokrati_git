@@ -1,0 +1,31 @@
+{% extends 'users/main.html' %}
+{% load static %}
+{% block title %}
+    Конвертор ссылок
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h2 class="links_title">Создание ссылок</h2>
+<div class="links_block">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="links_button" type="submit" name="button">Создать ссылку</button>
+    </form>
+</div>
+
+<h2 class="links_title">Доступные ссылки</h2>
+{% for el in newLink %}
+
+{% if user.id == el.user_id %}
+<div class="links_transform_block">
+     <p>Ссылка - <a href="{{el.oldLink}}">/link/{{el.newLink}}/</a></p>
+
+{% endif %}
+
+    {% endfor %}
+</div>
+
+{%endif%}
+{% endblock %}
